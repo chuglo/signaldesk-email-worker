@@ -14,7 +14,7 @@ dependencies = [
   "httpx>=0.28,<1",
   "pydantic-settings>=2.10,<3",
   "redis>=6.4,<7",
-  "signaldesk-contracts==0.1.0",
+  "signaldesk-contracts==0.2.0",
 ]
 
 [project.scripts]
