@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "signaldesk-email-worker"
+version = "0.1.0"
+description = "Crash-safe authoritative Mailpit email worker for SignalDesk"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+  "email-validator>=2.2,<3",
+  "httpcore>=1.0,<2",
+  "httpx>=0.28,<1",
+  "pydantic-settings>=2.10,<3",
+  "redis>=6.4,<7",
+  "signaldesk-contracts==0.1.0",
+]
+
+[project.scripts]
+signaldesk-email-worker = "signaldesk_email_worker.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8.3,<9"]
+
+[tool.uv.sources]
+signaldesk-contracts = { path = "../signaldesk-contracts" }
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/signaldesk_email_worker"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]

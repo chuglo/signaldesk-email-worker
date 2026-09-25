@@ -1,0 +1,1 @@
+"""SignalDesk email worker package."""
