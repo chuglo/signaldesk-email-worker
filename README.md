@@ -1,5 +1,7 @@
 # SignalDesk Email Worker
 
+**Not for production use.**
+
 A least-privilege Redis Streams worker that resolves every recipient, template, and template-data value from the SignalDesk control API and delivers fixture mail only to `mailpit:1025`.
 
 ## Delivery protocol
@@ -57,3 +59,7 @@ Run one bounded poll with:
 ```bash
 signaldesk-email-worker --once
 ```
+
+## License
+
+MIT. See [LICENSE](LICENSE).
