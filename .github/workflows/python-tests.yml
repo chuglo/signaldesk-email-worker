@@ -1,0 +1,20 @@
+name: Python checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  tests:
+    uses: chuglo/signaldesk-ci/.github/workflows/python-tests.yml@62bde6c09ba3ba148fb2384aa95a84e23531ced2
+    with:
+      repository: signaldesk-email-worker
